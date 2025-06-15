@@ -1,0 +1,16 @@
+name: Publish Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish-release:
+    uses: TogglesPlatform/Pipelines/.github/workflows/publish-release.yml@v1
+    with:
+      xcode-version: 16.4.0
+      tool-name: 'ToggleCipher'
+      runner: 'macos-15'
+    secrets:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
